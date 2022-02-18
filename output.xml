@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220218 18:49:13.814" rpa="false" schemaversion="2">
+<suite id="s1" name="Onuma Homework4" source="C:\Users\onuma\Dropbox\PC\Desktop\onuma_robot\Testcase\onuma_homework4.robot">
+<test id="s1-t1" name="1. Go to website">
+<kw name="Open Browser from Config" library="common">
+<if>
+<branch type="IF" condition="&quot;${select_environment}&quot; == &quot;production&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${production_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220218 18:49:14.222" level="INFO">Opening browser 'chrome' to base url 'https://makroclick.com/th'.</msg>
+<status status="PASS" starttime="20220218 18:49:14.222" endtime="20220218 18:49:20.131"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>URL == ${production_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:20.131" endtime="20220218 18:49:20.131"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:14.221" endtime="20220218 18:49:20.131"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${select_environment}&quot; == &quot;dev&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${dev_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20220218 18:49:20.131" endtime="20220218 18:49:20.131"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>URL == ${dev_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220218 18:49:20.131" endtime="20220218 18:49:20.131"/>
+</kw>
+<status status="NOT RUN" starttime="20220218 18:49:20.131" endtime="20220218 18:49:20.131"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${select_environment}&quot; == &quot;qa&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${qa_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20220218 18:49:20.132" endtime="20220218 18:49:20.132"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>URL == ${qa_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220218 18:49:20.132" endtime="20220218 18:49:20.132"/>
+</kw>
+<status status="NOT RUN" starttime="20220218 18:49:20.132" endtime="20220218 18:49:20.132"/>
+</branch>
+<status status="PASS" starttime="20220218 18:49:14.221" endtime="20220218 18:49:20.132"/>
+</if>
+<status status="PASS" starttime="20220218 18:49:14.221" endtime="20220218 18:49:20.132"/>
+</kw>
+<kw name="close pop-up" library="common">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${closer_pop_up_xpath}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220218 18:49:20.132" endtime="20220218 18:49:20.195"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${closer_pop_up_xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:20.196" level="INFO">Clicking element 'xpath=//div[@class="modal hide fade show"]//a[@data-dismiss="modal"]'.</msg>
+<status status="PASS" starttime="20220218 18:49:20.196" endtime="20220218 18:49:20.394"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:20.132" endtime="20220218 18:49:20.394"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:14.220" endtime="20220218 18:49:20.394"/>
+</test>
+<test id="s1-t2" name="2. input for search">
+<kw name="input for Search by Keyword" library="keyword">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${search_key.s1}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:20.396" endtime="20220218 18:49:20.398"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${input_search_xpath}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220218 18:49:20.398" endtime="20220218 18:49:20.463"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${input_search_xpath}</arg>
+<arg>${search_key.s1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:20.464" level="INFO">Typing text 'กระทะ' into text field 'xpath=//div[@class="search-input"]//input[@type="text" and @placeholder="ค้นหาสินค้า, หมวดหมู่, รหัสสินค้า"]'.</msg>
+<status status="PASS" starttime="20220218 18:49:20.464" endtime="20220218 18:49:20.750"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:20.396" endtime="20220218 18:49:20.750"/>
+</kw>
+<kw name="click search icon" library="keyword">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${click_btn_search_xpath}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220218 18:49:20.751" endtime="20220218 18:49:20.824"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${click_btn_search_xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:20.825" level="INFO">Clicking element 'xpath=//div[@class="background-darkRed d-flex align-items-center h-100 click" and @role="button"]'.</msg>
+<status status="PASS" starttime="20220218 18:49:20.825" endtime="20220218 18:49:23.006"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:20.751" endtime="20220218 18:49:23.007"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:20.395" endtime="20220218 18:49:23.007"/>
+</test>
+<test id="s1-t3" name="3. Print Product Name and code">
+<kw name="list name and code of product" library="keyword">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{product_name_xpath}</var>
+<arg>${product_name_xpath}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.049" level="INFO">@{product_name_xpath} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="ef1080af-8fbf-421e-8a77-963f26392876")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20220218 18:49:23.009" endtime="20220218 18:49:23.049"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{product_code_xpath}</var>
+<arg>${product_code_xpath}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.130" level="INFO">@{product_code_xpath} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="b5a9de4e-b350-477e-9d67-b315612f14c4")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20220218 18:49:23.049" endtime="20220218 18:49:23.130"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220218 18:49:23.131" level="INFO">${index} = 0</msg>
+<status status="PASS" starttime="20220218 18:49:23.130" endtime="20220218 18:49:23.131"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{product_name_xpath}</value>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="ef1080af-8fbf-421e-8a77-963f26392876")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.264" level="INFO">${product_name} = ไดมอนด์ เชฟ กระทะเคลือบนอนสติ๊ก ก้นลึก ขนาด 32 ซม.</msg>
+<status status="PASS" starttime="20220218 18:49:23.132" endtime="20220218 18:49:23.264"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.264" endtime="20220218 18:49:23.264"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_code}</var>
+<arg>${product_code_xpath}[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.275" level="INFO">${product_code} = รหัสสินค้า 821342</msg>
+<status status="PASS" starttime="20220218 18:49:23.264" endtime="20220218 18:49:23.275"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.275" endtime="20220218 18:49:23.276"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == 4</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220218 18:49:23.276" endtime="20220218 18:49:23.276"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>${index + 1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220218 18:49:23.277" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20220218 18:49:23.276" endtime="20220218 18:49:23.277"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.131" endtime="20220218 18:49:23.277"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="363d99c3-88a2-4ed0-8dc0-5934dbaa1323")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.287" level="INFO">${product_name} = ชุดกระทะนอนสติ๊กเหลี่ยม 28 ซม. พร้อมฝาแก้ว</msg>
+<status status="PASS" starttime="20220218 18:49:23.277" endtime="20220218 18:49:23.287"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.288" endtime="20220218 18:49:23.288"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_code}</var>
+<arg>${product_code_xpath}[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.300" level="INFO">${product_code} = รหัสสินค้า 896122</msg>
+<status status="PASS" starttime="20220218 18:49:23.288" endtime="20220218 18:49:23.300"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.300" endtime="20220218 18:49:23.301"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == 4</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220218 18:49:23.301" endtime="20220218 18:49:23.301"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>${index + 1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220218 18:49:23.302" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20220218 18:49:23.302" endtime="20220218 18:49:23.302"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.277" endtime="20220218 18:49:23.302"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="9b7d5391-aac8-40b4-88e8-e9ef4991e477")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.313" level="INFO">${product_name} = ซีกัล กระทะทรงลึก มาราธอน 28 ซม.</msg>
+<status status="PASS" starttime="20220218 18:49:23.303" endtime="20220218 18:49:23.313"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.313" endtime="20220218 18:49:23.314"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_code}</var>
+<arg>${product_code_xpath}[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.326" level="INFO">${product_code} = รหัสสินค้า 839794</msg>
+<status status="PASS" starttime="20220218 18:49:23.314" endtime="20220218 18:49:23.326"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.326" endtime="20220218 18:49:23.327"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == 4</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220218 18:49:23.327" endtime="20220218 18:49:23.327"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>${index + 1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220218 18:49:23.328" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20220218 18:49:23.327" endtime="20220218 18:49:23.328"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.303" endtime="20220218 18:49:23.328"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="c3e94465-fe21-40c9-a58c-6e433c8d472e")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.338" level="INFO">${product_name} = ตราร่ม กระทะเนื้อย่างเกาหลี ขนาด 30 ซม.</msg>
+<status status="PASS" starttime="20220218 18:49:23.328" endtime="20220218 18:49:23.339"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.339" endtime="20220218 18:49:23.339"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_code}</var>
+<arg>${product_code_xpath}[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.351" level="INFO">${product_code} = รหัสสินค้า 244270</msg>
+<status status="PASS" starttime="20220218 18:49:23.339" endtime="20220218 18:49:23.351"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.352" endtime="20220218 18:49:23.352"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == 4</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220218 18:49:23.352" endtime="20220218 18:49:23.353"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>${index + 1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220218 18:49:23.354" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20220218 18:49:23.353" endtime="20220218 18:49:23.354"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.328" endtime="20220218 18:49:23.354"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5339ef8abe9b4432b0e6ba0d7a8a1714", element="14c9c6ad-0c59-47b9-b454-ef6f8a1b2cb2")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.399" level="INFO">${product_name} = ซีกัล กระทะทรงลึก กลาดิเอเตอร์ ไฟว์จีเอ็กซ์ อินดักชั่น 20 ซม.</msg>
+<status status="PASS" starttime="20220218 18:49:23.354" endtime="20220218 18:49:23.399"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.399" endtime="20220218 18:49:23.400"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_code}</var>
+<arg>${product_code_xpath}[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220218 18:49:23.411" level="INFO">${product_code} = รหัสสินค้า 895510</msg>
+<status status="PASS" starttime="20220218 18:49:23.400" endtime="20220218 18:49:23.411"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>==========&gt; ${product_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220218 18:49:23.411" endtime="20220218 18:49:23.412"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == 4</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<msg timestamp="20220218 18:49:23.412" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220218 18:49:23.412" endtime="20220218 18:49:23.413"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.354" endtime="20220218 18:49:23.413"/>
+</iter>
+<status status="PASS" starttime="20220218 18:49:23.131" endtime="20220218 18:49:23.413"/>
+</for>
+<status status="PASS" starttime="20220218 18:49:23.008" endtime="20220218 18:49:23.413"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.008" endtime="20220218 18:49:23.413"/>
+</test>
+<test id="s1-t4" name="4.close">
+<kw name="close web" library="common">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220218 18:49:23.415" endtime="20220218 18:49:25.579"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.415" endtime="20220218 18:49:25.579"/>
+</kw>
+<status status="PASS" starttime="20220218 18:49:23.414" endtime="20220218 18:49:25.580"/>
+</test>
+<status status="PASS" starttime="20220218 18:49:13.816" endtime="20220218 18:49:25.582"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Onuma Homework4">Onuma Homework4</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

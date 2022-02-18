@@ -1,0 +1,6 @@
+config:
+  select_environment: "production"
+  environment:
+    production: "https://makroclick.com/th"
+    dev: "https://dev.makroclick.com/th"
+    qa: "https://qa.makroclick.com/th"
